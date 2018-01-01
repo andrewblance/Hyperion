@@ -5,12 +5,13 @@ import matplotlib.pyplot as plt
 
 data = np.genfromtxt('results.csv', delimiter = ',', dtype =None)
 
-xdata = data[:,1]
-ydata = data[:,2]
+xdata = data[:,0]
+ydata = data[:,6]
 
-plt.scatter(xdata, ydata)
-plt.xlabel('x')
-plt.ylabel('y')
+plt.plot(xdata, ydata)
+plt.title('Hyperion eta versus time')
+plt.xlabel('time (yr)')
+plt.ylabel('radians')
 
 plt.savefig("Results.png")
 plt.show()

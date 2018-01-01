@@ -58,6 +58,11 @@ int main()
         {
 	    myfile << tt[n] << "," << xx[0][n] << "," << xx[1][n] << "," << xx[2][n] << "," << xx[3][n] << endl;
         }
+        if (n_dim == 6)
+        {
+            myfile << tt[n] << "," << xx[0][n] << "," << xx[1][n] << "," << xx[2][n]
+                            << "," << xx[3][n] << "," << xx[4][n] << "," << xx[5][n] << endl;
+        }
     }
     myfile.close();
 
