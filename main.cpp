@@ -28,7 +28,17 @@ int main()
     	dx2 = dt * dx_dt(t + 0.5*dt, x + 0.5*dx1);
     	dx3 = dt * dx_dt(t + 0.5*dt, x + 0.5*dx2);
     	dx4 = dt * dx_dt(t +     dt, x +     dx3);
-        
+
+        // add restrictions to a x[] value
+        if (x[4] >=  1.*M_PI)
+        {
+            x[4] += -2.*M_PI;
+        }
+        if (x[4] <= -1.*M_PI)
+        {
+            x[4] +=  2.*M_PI;
+        }
+
         // Adds t & x[] to appropriate vectors
         for (int i=0; i<n_dim; i++)
         {
@@ -42,7 +52,7 @@ int main()
 	    cout << "For t = " << t << ", x[0] = " << x[0] << ", x[1] = " << x[1] << endl;
 	}
 */
-        x  += (1.0/6.0)*(dx1 + 2.0*dx2 + 2.0*dx3 + dx4);
+        x  += (1./6.)*(dx1 + 2.*dx2 + 2.*dx3 + dx4);
 	t  += dt;
     }
 
