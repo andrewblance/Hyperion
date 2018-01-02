@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 data = np.genfromtxt('results.csv', delimiter = ',', dtype =None)
 
 xdata = data[:,0]
-ydata = data[:,6]
+ydata = data[:,5]
 
 plt.plot(xdata, ydata)
 plt.title('Hyperion eta versus time')
