@@ -27,7 +27,8 @@ yinput = input("What data do you want shown on the y axis? ")
 y_label = input("What is the label for the y axis? ")
 ydata = data[:,yinput]
 
-plt.plot(xdata, ydata)
+plt.scatter(xdata, ydata, s=0.1)
+plt.grid(True)
 plt.title(title_input)
 plt.xlabel(x_label)
 plt.ylabel(y_label)
