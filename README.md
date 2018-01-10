@@ -30,7 +30,7 @@ Once the function and initial values have been set the program should be ready t
 Doing this should create a ```.csv``` file containing the results and the plot specified in the ```.py``` file.
 
 ## Future Work
-We aim at the moment to make the program print a select number of results directly to the terminal, so you could see how the results looked without opening the ```.csv```. Also we would like to update the program to allow the user to select certain initial parameters by entering them into the terminal instead of having to declare them in ```dxdt.cpp```. Furthermore, it is a goal to change ```dxdt.cpp``` such that it is the only file need to be edited when adding, or changing, a function.
+We aim at the moment to make the program print a select number of results directly to the terminal, so you could see how the results looked without opening the ```.csv```. Furthermore, it is a goal to change ```dxdt.cpp``` such that it is the only file need to be edited when adding, or changing, a function.
 
 
 
