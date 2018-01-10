@@ -79,12 +79,17 @@ int main()
     myfile.close();
 
     // open .py file to produce plot
-    char filename[] = "plotter.py";
-    FILE* fp;
-    Py_Initialize();
-    fp = fopen(filename, "r");
-    PyRun_SimpleFile(fp, filename);
-    Py_Finalize();
-
+    string enable_plt;
+    cout << "Do you want to produce a plot? (y/n) " << ".\n";
+    getline (cin, enable_plt);
+    if (enable_plt == "y")
+    {
+        char filename[] = "plotter.py";
+        FILE* fp;
+        Py_Initialize();
+        fp = fopen(filename, "r");
+        PyRun_SimpleFile(fp, filename);
+        Py_Finalize();
+    }
     return 0;
 }
