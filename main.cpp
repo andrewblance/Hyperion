@@ -21,6 +21,9 @@ int main()
     ofstream myfile;
     myfile.open("results.csv");
     
+    string enable_limits;
+    cout << "If you have specified any restrictions on any parameters in main.cpp, would you like to enforce them? (y/n) " << ".\n";
+    getline (cin, enable_limits);
     // RK4 solver
     while (t < t1)
     {
@@ -30,15 +33,17 @@ int main()
     	dx4 = dt * dx_dt(t +     dt, x +     dx3);
 
         // add restrictions to a x[] value
-        if (x[4] >=  1.*M_PI)
+        if (enable_limits == "y")
         {
-            x[4] += -2.*M_PI;
+            if (x[4] >=  1.*M_PI)
+            {
+                x[4] += -2.*M_PI;
+            }
+            if (x[4] <= -1.*M_PI)
+            {
+                x[4] +=  2.*M_PI;
+            }
         }
-        if (x[4] <= -1.*M_PI)
-        {
-            x[4] +=  2.*M_PI;
-        }
-
         // Adds t & x[] to appropriate vectors
         for (int i=0; i<n_dim; i++)
         {
@@ -80,6 +85,7 @@ int main()
 
     // open .py file to produce plot
     string enable_plt;
+    cout << "Results are saved in results.csv" << ".\n";
     cout << "Do you want to produce a plot? (y/n) " << ".\n";
     getline (cin, enable_plt);
     if (enable_plt == "y")
