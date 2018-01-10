@@ -4,11 +4,11 @@ using namespace std;
 // Choose Initial Values
 double init_dist = 1., init_Vel = 1.;
 double eccentricity = 0.365;
-double a = init_dist / (1 + eccentricity);
+double a = init_dist / (1. + eccentricity);
 double GMs = 4.*pow(M_PI,2);
 
-double x_init = init_dist, Vx_init = 0, 
-       y_init = 0., Vy_init = init_Vel * sqrt( GMs*(1-eccentricity) / init_dist ),
+double x_init = a * (1 + eccentricity), Vx_init = 0., 
+       y_init = 0., Vy_init = init_Vel * sqrt( GMs*(1.-eccentricity) / (a * (1.+eccentricity)) ),
        z_init = 0., Vz_init = 0.;
 double x0[] = { x_init, Vx_init,
                 y_init, Vy_init, 
