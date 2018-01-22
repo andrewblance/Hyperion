@@ -24,6 +24,7 @@ int main()
     string enable_limits;
     cout << "If you have specified any restrictions on any parameters in main.cpp, would you like to enforce them? (y/n) " << ".\n";
     getline (cin, enable_limits);
+
     // RK4 solver
     while (t < t1)
     {
@@ -31,7 +32,6 @@ int main()
     	dx2 = dt * dx_dt(t + 0.5*dt, x + 0.5*dx1);
     	dx3 = dt * dx_dt(t + 0.5*dt, x + 0.5*dx2);
     	dx4 = dt * dx_dt(t +     dt, x +     dx3);
-
         // add restrictions to a x[] value
         if (enable_limits == "y")
         {
@@ -51,12 +51,6 @@ int main()
         }
 	tt.push_back(t);
 
-/*     // Broken???
-    	if ( fabs(t-round(t)) < Tolerance)   // will print x & t to terminal if t is a round num
-	{
-	    cout << "For t = " << t << ", x[0] = " << x[0] << ", x[1] = " << x[1] << endl;
-	}
-*/
         x  += (1./6.)*(dx1 + 2.*dx2 + 2.*dx3 + dx4);
 	t  += dt;
     }
@@ -82,8 +76,9 @@ int main()
         }
     }
     myfile.close();
-
+    
     // open .py file to produce plot
+    /*
     string enable_plt;
     cout << "Results are saved in results.csv" << ".\n";
     cout << "Do you want to produce a plot? (y/n) " << ".\n";
@@ -97,5 +92,6 @@ int main()
         PyRun_SimpleFile(fp, filename);
         Py_Finalize();
     }
+    */
     return 0;
 }
